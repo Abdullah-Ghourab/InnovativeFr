@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>Client Name</th>
+      <th>Phone Number</th>
+      <th>Email Address</th>
+      <th>Home Address</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients; index as index">
+      <td>{{ client.name }}</td>
+      <td>{{ client.phoneNumber }}</td>
+      <td>{{ client.email }}</td>
+      <td>{{ client.homeAddress }}</td>
+      <td>
+        <button (click)="openPopup('edit', client, index)">Edit</button>
+        <button (click)="openPopup('delete', client, index)">Delete</button>
+        <button (click)="sendEmail(client)">Send Email</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

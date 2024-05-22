@@ -1,0 +1,25 @@
+<div class="popup-overlay">
+  <div class="popup">
+    <h2>{{ popupTitle }}</h2>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <label>
+        Name:
+        <input type="text" formControlName="name" />
+      </label>
+      <label>
+        Phone Number:
+        <input type="text" formControlName="phoneNumber" required />
+      </label>
+      <label>
+        Email Address:
+        <input type="email" formControlName="email" required />
+      </label>
+      <label>
+        Home Address:
+        <input type="text" formControlName="homeAddress" required />
+      </label>
+      <button type="submit">Save</button>
+      <button type="button" (click)="closePopupDialog()">Cancel</button>
+    </form>
+  </div>
+</div>
