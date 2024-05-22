@@ -6,12 +6,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EmailService {
-  private apiUrl = 'https://localhost:7224/api/Clients/sendMail';
+  private apiUrl = 'https://localhost:7224/api/Clients/sendMail/';
 
   constructor(private http: HttpClient) { }
 
   sendEmail(to: string, subject: string, body: string): Observable<void> {
-    const payload = { to, subject, body };
-    return this.http.post<void>(this.apiUrl, payload);
+    const payload = { email: to };
+    return this.http.post<void>(this.apiUrl + to, {});
   }
 }
