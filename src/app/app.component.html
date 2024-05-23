@@ -1,2 +1,11 @@
-<app-client-table (clientEmitter)="openModel($event)"></app-client-table>
-<app-pop-up *ngIf="popupTitle" [popupTitle]="popupTitle"></app-pop-up>
+<app-client-table
+  [client]="selectedClient"
+  (clientEmitter)="openModel($event)"
+></app-client-table>
+<app-pop-up
+  *ngIf="popupTitle"
+  [client]="selectedClient"
+  [popupTitle]="popupTitle"
+  (saveClient)="clientUpdated($event)"
+  (closePopup)="popupTitle = ''"
+></app-pop-up>

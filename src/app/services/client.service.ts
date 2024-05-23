@@ -7,7 +7,7 @@ import { IClient } from '../core/interfaces/client.interface';
   providedIn: 'root'
 })
 export class ClientService {
-  private apiUrl = 'https://localhost:7224/api/Clients/';
+  private apiUrl = 'https://localhost:7224/api/Clients';
   http = inject(HttpClient)
 
   xyz = [
@@ -34,7 +34,6 @@ export class ClientService {
     }
   ]
   getClients(): Observable<IClient[]> {
-    console.log("naughtyAmerica");
     return this.http.get<IClient[]>(this.apiUrl);
 
   }

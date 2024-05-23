@@ -1,24 +1,46 @@
-<table>
-  <thead>
-    <tr>
-      <th>Client Name</th>
-      <th>Phone Number</th>
-      <th>Email Address</th>
-      <th>Home Address</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let client of clients; index as index">
-      <td>{{ client.name }}</td>
-      <td>{{ client.phoneNumber }}</td>
-      <td>{{ client.email }}</td>
-      <td>{{ client.homeAddress }}</td>
-      <td>
-        <button (click)="openPopup('edit', client, index)">Edit</button>
-        <button (click)="openPopup('delete', client, index)">Delete</button>
-        <button (click)="sendEmail(client)">Send Email</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="container mt-4">
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" (click)="openPopup('add')">
+      Add Client
+    </button>
+  </div>
+
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Client Name</th>
+        <th>Phone Number</th>
+        <th>Email Address</th>
+        <th>Home Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients; index as index">
+        <td>{{ client.name }}</td>
+        <td>{{ client.phoneNumber }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.homeAddress }}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button
+              class="btn btn-primary"
+              (click)="openPopup('edit', client, index)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="deleteClient(client, index)"
+            >
+              Delete
+            </button>
+            <button class="btn btn-secondary" (click)="sendEmail(client)">
+              Send Email
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

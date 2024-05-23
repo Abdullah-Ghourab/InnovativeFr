@@ -4,6 +4,7 @@ import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { ClientTableComponent } from './components/client-table/client-table.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgFor, NgIf } from '@angular/common';
+import { IClient } from './core/interfaces/client.interface';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,12 @@ import { NgFor, NgIf } from '@angular/common';
 export class AppComponent {
   title = 'InnovativeFr';
   popupTitle = '';
+  selectedClient!: IClient;
   openModel(data: any) {
-    console.log(data)
+    this.selectedClient = data.client;
     this.popupTitle = data.title;
-
+  }
+  clientUpdated(client: IClient) {
+    this.selectedClient = client;
   }
 }
